@@ -8,10 +8,18 @@ namespace Agent_Program
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginSignup());
+
+            using (LoginSignup login = new LoginSignup())
+            {
+                if (login.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Run(new Main());
+                }
+            }
         }
+
     }
 }

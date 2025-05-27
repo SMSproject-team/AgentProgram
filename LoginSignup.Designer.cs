@@ -38,11 +38,11 @@ namespace Agent_Program
             SignupBtn = new Button();
             LoginSignupBtn = new Button();
             Textpanel3 = new Panel();
-            textBox3 = new TextBox();
+            Textbox3 = new TextBox();
             Textpanel2 = new Panel();
-            textBox2 = new TextBox();
+            Textbox2 = new TextBox();
             Textpanel1 = new Panel();
-            textBox1 = new TextBox();
+            Textbox1 = new TextBox();
             Leftpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             Rightpanel.SuspendLayout();
@@ -115,6 +115,7 @@ namespace Agent_Program
             SignupBtn.TabIndex = 4;
             SignupBtn.Text = "회원가입";
             SignupBtn.UseVisualStyleBackColor = false;
+            SignupBtn.Click += SignupBtn_Click;
             // 
             // LoginSignupBtn
             // 
@@ -127,74 +128,75 @@ namespace Agent_Program
             LoginSignupBtn.Padding = new Padding(5);
             LoginSignupBtn.Size = new Size(100, 40);
             LoginSignupBtn.TabIndex = 3;
-            LoginSignupBtn.Text = "회원가입";
+            LoginSignupBtn.Text = "로그인";
             LoginSignupBtn.UseVisualStyleBackColor = false;
+            LoginSignupBtn.Click += LoginSignupBtn_Click;
             // 
             // Textpanel3
             // 
             Textpanel3.BackColor = Color.FromArgb(223, 223, 223);
-            Textpanel3.Controls.Add(textBox3);
+            Textpanel3.Controls.Add(Textbox3);
             Textpanel3.Location = new Point(53, 240);
             Textpanel3.Name = "Textpanel3";
             Textpanel3.Padding = new Padding(5, 8, 5, 5);
             Textpanel3.Size = new Size(365, 40);
             Textpanel3.TabIndex = 2;
             // 
-            // textBox3
+            // Textbox3
             // 
-            textBox3.BackColor = Color.FromArgb(223, 223, 223);
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Dock = DockStyle.Fill;
-            textBox3.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            textBox3.Location = new Point(5, 8);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(355, 23);
-            textBox3.TabIndex = 0;
-            textBox3.Text = "hostname";
+            Textbox3.BackColor = Color.FromArgb(223, 223, 223);
+            Textbox3.BorderStyle = BorderStyle.None;
+            Textbox3.Dock = DockStyle.Fill;
+            Textbox3.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            Textbox3.Location = new Point(5, 8);
+            Textbox3.Name = "Textbox3";
+            Textbox3.Size = new Size(355, 23);
+            Textbox3.TabIndex = 0;
+            Textbox3.Text = "사용자명";
             // 
             // Textpanel2
             // 
             Textpanel2.BackColor = Color.FromArgb(223, 223, 223);
-            Textpanel2.Controls.Add(textBox2);
+            Textpanel2.Controls.Add(Textbox2);
             Textpanel2.Location = new Point(53, 170);
             Textpanel2.Name = "Textpanel2";
             Textpanel2.Padding = new Padding(5, 8, 5, 5);
             Textpanel2.Size = new Size(365, 40);
             Textpanel2.TabIndex = 2;
             // 
-            // textBox2
+            // Textbox2
             // 
-            textBox2.BackColor = Color.FromArgb(223, 223, 223);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Dock = DockStyle.Fill;
-            textBox2.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            textBox2.Location = new Point(5, 8);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(355, 23);
-            textBox2.TabIndex = 0;
-            textBox2.Text = "hostname";
+            Textbox2.BackColor = Color.FromArgb(223, 223, 223);
+            Textbox2.BorderStyle = BorderStyle.None;
+            Textbox2.Dock = DockStyle.Fill;
+            Textbox2.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            Textbox2.Location = new Point(5, 8);
+            Textbox2.Name = "Textbox2";
+            Textbox2.Size = new Size(355, 23);
+            Textbox2.TabIndex = 0;
+            Textbox2.Text = "IP";
             // 
             // Textpanel1
             // 
             Textpanel1.BackColor = Color.FromArgb(223, 223, 223);
-            Textpanel1.Controls.Add(textBox1);
+            Textpanel1.Controls.Add(Textbox1);
             Textpanel1.Location = new Point(53, 100);
             Textpanel1.Name = "Textpanel1";
             Textpanel1.Padding = new Padding(5, 8, 5, 5);
             Textpanel1.Size = new Size(365, 40);
             Textpanel1.TabIndex = 1;
             // 
-            // textBox1
+            // Textbox1
             // 
-            textBox1.BackColor = Color.FromArgb(223, 223, 223);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            textBox1.Location = new Point(5, 8);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(355, 23);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "hostname";
+            Textbox1.BackColor = Color.FromArgb(223, 223, 223);
+            Textbox1.BorderStyle = BorderStyle.None;
+            Textbox1.Dock = DockStyle.Fill;
+            Textbox1.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            Textbox1.Location = new Point(5, 8);
+            Textbox1.Name = "Textbox1";
+            Textbox1.Size = new Size(355, 23);
+            Textbox1.TabIndex = 0;
+            Textbox1.Text = "hostname";
             // 
             // LoginSignup
             // 
@@ -225,12 +227,12 @@ namespace Agent_Program
         private Label label1;
         private Panel Rightpanel;
         private Panel Textpanel1;
-        private TextBox textBox1;
+        private TextBox Textbox1;
         private Button LoginSignupBtn;
         private Panel Textpanel3;
-        private TextBox textBox3;
+        private TextBox Textbox3;
         private Panel Textpanel2;
-        private TextBox textBox2;
+        private TextBox Textbox2;
         private Button SignupBtn;
     }
 }
