@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Agent_Program
 {
-    public partial class Main : UserControl
+    public partial class Main : Form
     {
         public Main()
         {

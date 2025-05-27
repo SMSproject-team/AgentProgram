@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Agent Program")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d64260db0c9b0a6f464c987b38c04533789f49dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e15f32514462b6fb768c5982cd77a8e583d79e39")]
 [assembly: System.Reflection.AssemblyProductAttribute("Agent Program")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Agent Program")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
