@@ -37,8 +37,6 @@ namespace Agent_Program
             Rightpanel = new Panel();
             SignupBtn = new Button();
             LoginSignupBtn = new Button();
-            Textpanel3 = new Panel();
-            Textbox3 = new TextBox();
             Textpanel2 = new Panel();
             Textbox2 = new TextBox();
             Textpanel1 = new Panel();
@@ -46,7 +44,6 @@ namespace Agent_Program
             Leftpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             Rightpanel.SuspendLayout();
-            Textpanel3.SuspendLayout();
             Textpanel2.SuspendLayout();
             Textpanel1.SuspendLayout();
             SuspendLayout();
@@ -93,7 +90,6 @@ namespace Agent_Program
             Rightpanel.BackColor = Color.White;
             Rightpanel.Controls.Add(SignupBtn);
             Rightpanel.Controls.Add(LoginSignupBtn);
-            Rightpanel.Controls.Add(Textpanel3);
             Rightpanel.Controls.Add(Textpanel2);
             Rightpanel.Controls.Add(Textpanel1);
             Rightpanel.Location = new Point(330, 0);
@@ -109,7 +105,7 @@ namespace Agent_Program
             SignupBtn.FlatStyle = FlatStyle.Flat;
             SignupBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
             SignupBtn.ForeColor = Color.FromArgb(62, 55, 225);
-            SignupBtn.Location = new Point(53, 365);
+            SignupBtn.Location = new Point(53, 321);
             SignupBtn.Name = "SignupBtn";
             SignupBtn.Size = new Size(75, 25);
             SignupBtn.TabIndex = 4;
@@ -123,7 +119,7 @@ namespace Agent_Program
             LoginSignupBtn.FlatStyle = FlatStyle.Flat;
             LoginSignupBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
             LoginSignupBtn.ForeColor = Color.White;
-            LoginSignupBtn.Location = new Point(53, 310);
+            LoginSignupBtn.Location = new Point(53, 266);
             LoginSignupBtn.Name = "LoginSignupBtn";
             LoginSignupBtn.Padding = new Padding(5);
             LoginSignupBtn.Size = new Size(100, 40);
@@ -132,33 +128,11 @@ namespace Agent_Program
             LoginSignupBtn.UseVisualStyleBackColor = false;
             LoginSignupBtn.Click += LoginSignupBtn_Click;
             // 
-            // Textpanel3
-            // 
-            Textpanel3.BackColor = Color.FromArgb(223, 223, 223);
-            Textpanel3.Controls.Add(Textbox3);
-            Textpanel3.Location = new Point(53, 240);
-            Textpanel3.Name = "Textpanel3";
-            Textpanel3.Padding = new Padding(5, 8, 5, 5);
-            Textpanel3.Size = new Size(365, 40);
-            Textpanel3.TabIndex = 2;
-            // 
-            // Textbox3
-            // 
-            Textbox3.BackColor = Color.FromArgb(223, 223, 223);
-            Textbox3.BorderStyle = BorderStyle.None;
-            Textbox3.Dock = DockStyle.Fill;
-            Textbox3.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            Textbox3.Location = new Point(5, 8);
-            Textbox3.Name = "Textbox3";
-            Textbox3.Size = new Size(355, 23);
-            Textbox3.TabIndex = 0;
-            Textbox3.Text = "사용자명";
-            // 
             // Textpanel2
             // 
             Textpanel2.BackColor = Color.FromArgb(223, 223, 223);
             Textpanel2.Controls.Add(Textbox2);
-            Textpanel2.Location = new Point(53, 170);
+            Textpanel2.Location = new Point(53, 200);
             Textpanel2.Name = "Textpanel2";
             Textpanel2.Padding = new Padding(5, 8, 5, 5);
             Textpanel2.Size = new Size(365, 40);
@@ -174,17 +148,17 @@ namespace Agent_Program
             Textbox2.Name = "Textbox2";
             Textbox2.Size = new Size(355, 23);
             Textbox2.TabIndex = 0;
-            Textbox2.Text = "IP";
+            Textbox2.Text = "사용자명";
             // 
             // Textpanel1
             // 
             Textpanel1.BackColor = Color.FromArgb(223, 223, 223);
             Textpanel1.Controls.Add(Textbox1);
-            Textpanel1.Location = new Point(53, 100);
+            Textpanel1.Location = new Point(53, 140);
             Textpanel1.Name = "Textpanel1";
             Textpanel1.Padding = new Padding(5, 8, 5, 5);
             Textpanel1.Size = new Size(365, 40);
-            Textpanel1.TabIndex = 1;
+            Textpanel1.TabIndex = 2;
             // 
             // Textbox1
             // 
@@ -196,7 +170,7 @@ namespace Agent_Program
             Textbox1.Name = "Textbox1";
             Textbox1.Size = new Size(355, 23);
             Textbox1.TabIndex = 0;
-            Textbox1.Text = "hostname";
+            Textbox1.Text = "IP";
             // 
             // LoginSignup
             // 
@@ -211,8 +185,6 @@ namespace Agent_Program
             Leftpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             Rightpanel.ResumeLayout(false);
-            Textpanel3.ResumeLayout(false);
-            Textpanel3.PerformLayout();
             Textpanel2.ResumeLayout(false);
             Textpanel2.PerformLayout();
             Textpanel1.ResumeLayout(false);
@@ -226,13 +198,11 @@ namespace Agent_Program
         private PictureBox Logo;
         private Label label1;
         private Panel Rightpanel;
-        private Panel Textpanel1;
-        private TextBox Textbox1;
         private Button LoginSignupBtn;
-        private Panel Textpanel3;
-        private TextBox Textbox3;
         private Panel Textpanel2;
         private TextBox Textbox2;
+        private Panel Textpanel1;
+        private TextBox Textbox1;
         private Button SignupBtn;
     }
 }
