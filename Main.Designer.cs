@@ -34,6 +34,7 @@
             LogoutBtn = new Button();
             Logo = new PictureBox();
             MenuPanel = new Panel();
+            label1 = new Label();
             InforBtn = new Button();
             TakecheckBtn = new Button();
             TakeoutBtn = new Button();
@@ -54,7 +55,12 @@
             StartInfor = new Button();
             StartTakeout = new Button();
             TakecheckPanel = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            dataGridView1 = new DataGridView();
+            one = new DataGridViewTextBoxColumn();
+            two = new DataGridViewTextBoxColumn();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             MenuPanel.SuspendLayout();
@@ -63,6 +69,7 @@
             InforPanel.SuspendLayout();
             StartPanel.SuspendLayout();
             TakecheckPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // Header
@@ -117,6 +124,7 @@
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.White;
+            MenuPanel.Controls.Add(label1);
             MenuPanel.Controls.Add(InforBtn);
             MenuPanel.Controls.Add(TakecheckBtn);
             MenuPanel.Controls.Add(TakeoutBtn);
@@ -126,6 +134,15 @@
             MenuPanel.Padding = new Padding(10);
             MenuPanel.Size = new Size(160, 373);
             MenuPanel.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(137, 361);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 15);
+            label1.TabIndex = 8;
+            label1.Text = "label1";
             // 
             // InforBtn
             // 
@@ -372,30 +389,77 @@
             // TakecheckPanel
             // 
             TakecheckPanel.BackColor = Color.White;
-            TakecheckPanel.Controls.Add(tableLayoutPanel1);
+            TakecheckPanel.Controls.Add(button3);
+            TakecheckPanel.Controls.Add(button2);
+            TakecheckPanel.Controls.Add(button1);
+            TakecheckPanel.Controls.Add(dataGridView1);
             TakecheckPanel.Location = new Point(166, 76);
             TakecheckPanel.Name = "TakecheckPanel";
             TakecheckPanel.Padding = new Padding(10);
             TakecheckPanel.Size = new Size(636, 373);
             TakecheckPanel.TabIndex = 7;
             // 
-            // tableLayoutPanel1
+            // dataGridView1
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 77.87611F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.1238937F));
-            tableLayoutPanel1.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            tableLayoutPanel1.Location = new Point(36, 23);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 18.181818F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.363636F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.363636F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.363636F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.363636F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.363636F));
-            tableLayoutPanel1.Size = new Size(565, 306);
-            tableLayoutPanel1.TabIndex = 0;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.ColumnHeadersHeight = 40;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { one, two });
+            dataGridView1.Location = new Point(0, 16);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 40;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridView1.RowTemplate.Height = 35;
+            dataGridView1.Size = new Size(636, 315);
+            dataGridView1.TabIndex = 0;
+            // 
+            // one
+            // 
+            one.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            one.FillWeight = 400F;
+            one.HeaderText = "외부 반출 대상";
+            one.Name = "one";
+            // 
+            // two
+            // 
+            two.FillWeight = 200F;
+            two.HeaderText = "처리";
+            two.Name = "two";
+            two.Width = 200;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            button1.Location = new Point(502, 337);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 25);
+            button1.TabIndex = 1;
+            button1.Text = "1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            button2.Location = new Point(533, 337);
+            button2.Name = "button2";
+            button2.Size = new Size(25, 25);
+            button2.TabIndex = 2;
+            button2.Text = "2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            button3.Location = new Point(564, 337);
+            button3.Name = "button3";
+            button3.Size = new Size(25, 25);
+            button3.TabIndex = 3;
+            button3.Text = "3";
+            button3.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -414,6 +478,7 @@
             Header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             MenuPanel.ResumeLayout(false);
+            MenuPanel.PerformLayout();
             TakeoutPanel.ResumeLayout(false);
             TakeoutPanel.PerformLayout();
             Getpanel.ResumeLayout(false);
@@ -422,6 +487,7 @@
             InforPanel.PerformLayout();
             StartPanel.ResumeLayout(false);
             TakecheckPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -452,6 +518,12 @@
         private TextBox ReasonText;
         private Button RequestBtn;
         private Panel TakecheckPanel;
-        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn one;
+        private DataGridViewTextBoxColumn two;
+        private Button button3;
+        private Button button2;
+        private Button button1;
     }
 }
