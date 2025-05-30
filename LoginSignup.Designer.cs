@@ -35,17 +35,15 @@ namespace Agent_Program
             label1 = new Label();
             Logo = new PictureBox();
             Rightpanel = new Panel();
+            comboBox1 = new ComboBox();
             SignupBtn = new Button();
             LoginSignupBtn = new Button();
             Textpanel2 = new Panel();
             Textbox2 = new TextBox();
-            Textpanel1 = new Panel();
-            Textbox1 = new TextBox();
             Leftpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             Rightpanel.SuspendLayout();
             Textpanel2.SuspendLayout();
-            Textpanel1.SuspendLayout();
             SuspendLayout();
             // 
             // Leftpanel
@@ -88,15 +86,27 @@ namespace Agent_Program
             // Rightpanel
             // 
             Rightpanel.BackColor = Color.White;
+            Rightpanel.Controls.Add(comboBox1);
             Rightpanel.Controls.Add(SignupBtn);
             Rightpanel.Controls.Add(LoginSignupBtn);
             Rightpanel.Controls.Add(Textpanel2);
-            Rightpanel.Controls.Add(Textpanel1);
             Rightpanel.Location = new Point(330, 0);
             Rightpanel.Name = "Rightpanel";
             Rightpanel.Padding = new Padding(50);
             Rightpanel.Size = new Size(471, 450);
             Rightpanel.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.FromArgb(223, 223, 223);
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(53, 145);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(365, 31);
+            comboBox1.TabIndex = 5;
+            comboBox1.Text = "부서명";
             // 
             // SignupBtn
             // 
@@ -104,25 +114,26 @@ namespace Agent_Program
             SignupBtn.FlatAppearance.BorderSize = 0;
             SignupBtn.FlatStyle = FlatStyle.Flat;
             SignupBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            SignupBtn.ForeColor = Color.FromArgb(62, 55, 225);
+            SignupBtn.ForeColor = Color.FromArgb(103, 173, 178);
             SignupBtn.Location = new Point(53, 321);
             SignupBtn.Name = "SignupBtn";
             SignupBtn.Size = new Size(75, 25);
             SignupBtn.TabIndex = 4;
-            SignupBtn.Text = "회원가입";
+            SignupBtn.Text = "등록";
             SignupBtn.UseVisualStyleBackColor = false;
             SignupBtn.Click += SignupBtn_Click;
             // 
             // LoginSignupBtn
             // 
-            LoginSignupBtn.BackColor = Color.FromArgb(62, 55, 255);
+            LoginSignupBtn.BackColor = Color.FromArgb(137, 220, 226);
+            LoginSignupBtn.FlatAppearance.BorderSize = 0;
             LoginSignupBtn.FlatStyle = FlatStyle.Flat;
             LoginSignupBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            LoginSignupBtn.ForeColor = Color.White;
-            LoginSignupBtn.Location = new Point(53, 266);
+            LoginSignupBtn.ForeColor = Color.Black;
+            LoginSignupBtn.Location = new Point(53, 271);
             LoginSignupBtn.Name = "LoginSignupBtn";
             LoginSignupBtn.Padding = new Padding(5);
-            LoginSignupBtn.Size = new Size(100, 40);
+            LoginSignupBtn.Size = new Size(100, 35);
             LoginSignupBtn.TabIndex = 3;
             LoginSignupBtn.Text = "로그인";
             LoginSignupBtn.UseVisualStyleBackColor = false;
@@ -134,43 +145,19 @@ namespace Agent_Program
             Textpanel2.Controls.Add(Textbox2);
             Textpanel2.Location = new Point(53, 200);
             Textpanel2.Name = "Textpanel2";
-            Textpanel2.Padding = new Padding(5, 8, 5, 5);
-            Textpanel2.Size = new Size(365, 40);
+            Textpanel2.Size = new Size(365, 31);
             Textpanel2.TabIndex = 2;
             // 
             // Textbox2
             // 
             Textbox2.BackColor = Color.FromArgb(223, 223, 223);
             Textbox2.BorderStyle = BorderStyle.None;
-            Textbox2.Dock = DockStyle.Fill;
             Textbox2.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            Textbox2.Location = new Point(5, 8);
+            Textbox2.Location = new Point(3, 3);
             Textbox2.Name = "Textbox2";
-            Textbox2.Size = new Size(355, 23);
+            Textbox2.Size = new Size(357, 23);
             Textbox2.TabIndex = 0;
             Textbox2.Text = "사용자명";
-            // 
-            // Textpanel1
-            // 
-            Textpanel1.BackColor = Color.FromArgb(223, 223, 223);
-            Textpanel1.Controls.Add(Textbox1);
-            Textpanel1.Location = new Point(53, 140);
-            Textpanel1.Name = "Textpanel1";
-            Textpanel1.Padding = new Padding(5, 8, 5, 5);
-            Textpanel1.Size = new Size(365, 40);
-            Textpanel1.TabIndex = 2;
-            // 
-            // Textbox1
-            // 
-            Textbox1.BackColor = Color.FromArgb(223, 223, 223);
-            Textbox1.BorderStyle = BorderStyle.None;
-            Textbox1.Dock = DockStyle.Fill;
-            Textbox1.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            Textbox1.Location = new Point(5, 8);
-            Textbox1.Name = "Textbox1";
-            Textbox1.Size = new Size(355, 23);
-            Textbox1.TabIndex = 0;
-            Textbox1.Text = "IP";
             // 
             // LoginSignup
             // 
@@ -187,8 +174,6 @@ namespace Agent_Program
             Rightpanel.ResumeLayout(false);
             Textpanel2.ResumeLayout(false);
             Textpanel2.PerformLayout();
-            Textpanel1.ResumeLayout(false);
-            Textpanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -201,8 +186,7 @@ namespace Agent_Program
         private Button LoginSignupBtn;
         private Panel Textpanel2;
         private TextBox Textbox2;
-        private Panel Textpanel1;
-        private TextBox Textbox1;
         private Button SignupBtn;
+        private ComboBox comboBox1;
     }
 }

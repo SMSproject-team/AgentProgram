@@ -12,13 +12,21 @@ namespace Agent_Program
             Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
 
-            using (LoginSignup login = new LoginSignup())
+            while (true)
             {
-                if (login.ShowDialog() == DialogResult.OK)
+                using (LoginSignup login = new LoginSignup())
                 {
-                    Application.Run(new Main());
+                    if (login.ShowDialog() != DialogResult.OK)
+                        break; // 로그인 취소하면 종료
                 }
+
+                var main = new Main();
+                Application.Run(main);
+
+                if (!main.IsLogout)
+                    break; // 메인 폼이 그냥 닫힌 경우엔 앱 종료
             }
+
         }
 
     }

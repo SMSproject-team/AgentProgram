@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -31,6 +32,7 @@ namespace Agent_Program
         private void LoginSignup_Load(object sender, EventArgs e)
         {
             isLoginTrue();
+            LoadDropdown();
         }
 
         // 로그인(혹은 회원가입) 버튼 클릭
@@ -50,7 +52,7 @@ namespace Agent_Program
         private async void RegisterApi()
         {
             string userName = Textbox2.Text;
-            string departName = Textbox1.Text;
+            string departName = comboBox1.Text;
             string val = $"{hostName}|{ipAddress}|{userName}|{departName}";
             string url = $"http://192.168.0.82/Smsproject/Api/register.html?val="+Uri.EscapeDataString(val);
 
@@ -67,6 +69,7 @@ namespace Agent_Program
                         string[] parts = result.Split('|');
                         string agentId = parts[1];
                         string interval = parts[2];
+                        UserSession.Username = userName;
                         MessageBox.Show($"Agent 등록 성공\nID: {agentId}\n주기: {interval}");
 
                         string filePath = "D:\\박연희\\AgentProgram\\AgentID.id";
@@ -124,6 +127,7 @@ namespace Agent_Program
                     {
                         string[] parts = result.Split('|');
                         string interval = parts[1];
+                        UserSession.Username = parts[2];
                         MessageBox.Show($"Agent 로그인 성공\n주기: {interval}");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -145,21 +149,26 @@ namespace Agent_Program
             }
         }
 
+        public static class UserSession
+        {
+            public static string Username { get; set; }
+        }
+
         // 현재창의 상태가 로그인 상태인지 아닌지 확인 후 변경
         private void isLoginTrue()
         {
             if (isLogin)
             {
-                Textpanel1.Visible = false;
-                SignupBtn.Text = "회원가입";
+                comboBox1.Visible = false;
+                SignupBtn.Text = "등록";
                 LoginSignupBtn.Text = "로그인";
             }
             else
             {
-                Textpanel1.Visible = true;
-                Textbox1.Text = "부서명";
+                comboBox1.Visible = true;
+                comboBox1.Text = "부서명";
                 SignupBtn.Text = "로그인";
-                LoginSignupBtn.Text = "회원가입";
+                LoginSignupBtn.Text = "등록";
             }
         }
 
@@ -175,6 +184,50 @@ namespace Agent_Program
                 isLogin = true;
             }
             isLoginTrue();
-        }     
+        }
+        
+        // 부서 드롭다운 메뉴 넣기
+        private async void LoadDropdown()
+        {
+            string url = $"http://192.168.0.82/Smsproject/Api/get_departments.html?";
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+
+                    if (result.StartsWith("OK|"))
+                    {
+                        string[] parts = result.Split('|');
+                        if (parts.Length > 1) {
+                            string departmentList = parts[1].Trim();
+                            string[] departments = departmentList.Split('|');
+
+                            comboBox1.Items.Clear();
+                            foreach (var dept in departments)
+                            {
+                                comboBox1.Items.Add(dept.Trim());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"서버 응답 오류: {result}");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show($"통신 실패: {(int)response.StatusCode} {response.ReasonPhrase}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message);
+            }
+        }
     }
 }

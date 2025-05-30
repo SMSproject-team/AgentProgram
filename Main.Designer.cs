@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             Header = new Panel();
             CheckBtn = new Button();
             LogoutBtn = new Button();
             Logo = new PictureBox();
             MenuPanel = new Panel();
-            label1 = new Label();
             InforBtn = new Button();
             TakecheckBtn = new Button();
             TakeoutBtn = new Button();
@@ -44,30 +44,25 @@
             ReasonText = new TextBox();
             GetBtn = new Button();
             Getpanel = new Panel();
-            Gettextbox = new TextBox();
+            GetTextBox = new TextBox();
             InforPanel = new Panel();
-            Exceptionfile = new Label();
-            Secretfile = new Label();
+            Exception = new Label();
+            Extension = new Label();
             Exceptiontitle = new Label();
             Secrettitle = new Label();
-            StartPanel = new Panel();
-            StartTakecheck = new Button();
-            StartInfor = new Button();
-            StartTakeout = new Button();
             TakecheckPanel = new Panel();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             dataGridView1 = new DataGridView();
             one = new DataGridViewTextBoxColumn();
             two = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
             Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             MenuPanel.SuspendLayout();
             TakeoutPanel.SuspendLayout();
             Getpanel.SuspendLayout();
             InforPanel.SuspendLayout();
-            StartPanel.SuspendLayout();
             TakecheckPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -96,6 +91,7 @@
             CheckBtn.TabIndex = 2;
             CheckBtn.Text = "체크 요청";
             CheckBtn.UseVisualStyleBackColor = false;
+            CheckBtn.Click += CheckBtn_Click;
             // 
             // LogoutBtn
             // 
@@ -110,6 +106,7 @@
             LogoutBtn.TabIndex = 1;
             LogoutBtn.Text = "로그아웃";
             LogoutBtn.UseVisualStyleBackColor = false;
+            LogoutBtn.Click += LogoutBtn_Click;
             // 
             // Logo
             // 
@@ -124,7 +121,6 @@
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.White;
-            MenuPanel.Controls.Add(label1);
             MenuPanel.Controls.Add(InforBtn);
             MenuPanel.Controls.Add(TakecheckBtn);
             MenuPanel.Controls.Add(TakeoutBtn);
@@ -134,15 +130,6 @@
             MenuPanel.Padding = new Padding(10);
             MenuPanel.Size = new Size(160, 373);
             MenuPanel.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(137, 361);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 15);
-            label1.TabIndex = 8;
-            label1.Text = "label1";
             // 
             // InforBtn
             // 
@@ -159,6 +146,7 @@
             InforBtn.Text = "정보 요청";
             InforBtn.TextAlign = ContentAlignment.BottomCenter;
             InforBtn.UseVisualStyleBackColor = true;
+            InforBtn.Click += InforBtn_Click;
             // 
             // TakecheckBtn
             // 
@@ -175,6 +163,7 @@
             TakecheckBtn.Text = "반출 확인";
             TakecheckBtn.TextAlign = ContentAlignment.BottomCenter;
             TakecheckBtn.UseVisualStyleBackColor = true;
+            TakecheckBtn.Click += TakecheckBtn_Click;
             // 
             // TakeoutBtn
             // 
@@ -192,6 +181,7 @@
             TakeoutBtn.Text = "반출 요청";
             TakeoutBtn.TextAlign = ContentAlignment.BottomCenter;
             TakeoutBtn.UseVisualStyleBackColor = true;
+            TakeoutBtn.Click += TakeoutBtn_Click;
             // 
             // Username
             // 
@@ -229,6 +219,7 @@
             RequestBtn.TabIndex = 6;
             RequestBtn.Text = "요청";
             RequestBtn.UseVisualStyleBackColor = false;
+            RequestBtn.Click += RequestBtn_Click;
             // 
             // ReasonText
             // 
@@ -255,33 +246,39 @@
             GetBtn.TabIndex = 4;
             GetBtn.Text = "가져오기";
             GetBtn.UseVisualStyleBackColor = false;
+            GetBtn.Click += GetBtn_Click;
             // 
             // Getpanel
             // 
+            Getpanel.AllowDrop = true;
             Getpanel.BackColor = Color.FromArgb(223, 223, 223);
-            Getpanel.Controls.Add(Gettextbox);
+            Getpanel.Controls.Add(GetTextBox);
             Getpanel.Location = new Point(36, 55);
             Getpanel.Name = "Getpanel";
             Getpanel.Padding = new Padding(5, 8, 5, 5);
             Getpanel.Size = new Size(428, 40);
             Getpanel.TabIndex = 3;
+            Getpanel.DragDrop += Getpanel_DragDrop;
+            Getpanel.DragEnter += Getpanel_DragEnter;
             // 
-            // Gettextbox
+            // GetTextBox
             // 
-            Gettextbox.BackColor = Color.FromArgb(223, 223, 223);
-            Gettextbox.BorderStyle = BorderStyle.None;
-            Gettextbox.Dock = DockStyle.Fill;
-            Gettextbox.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            Gettextbox.Location = new Point(5, 8);
-            Gettextbox.Name = "Gettextbox";
-            Gettextbox.Size = new Size(418, 23);
-            Gettextbox.TabIndex = 0;
+            GetTextBox.BackColor = Color.FromArgb(223, 223, 223);
+            GetTextBox.BorderStyle = BorderStyle.None;
+            GetTextBox.Dock = DockStyle.Fill;
+            GetTextBox.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            GetTextBox.ForeColor = Color.DimGray;
+            GetTextBox.Location = new Point(5, 8);
+            GetTextBox.Name = "GetTextBox";
+            GetTextBox.Size = new Size(418, 23);
+            GetTextBox.TabIndex = 0;
+            GetTextBox.Text = "파일을 드래그하거나 가져와주세요";
             // 
             // InforPanel
             // 
             InforPanel.BackColor = Color.White;
-            InforPanel.Controls.Add(Exceptionfile);
-            InforPanel.Controls.Add(Secretfile);
+            InforPanel.Controls.Add(Exception);
+            InforPanel.Controls.Add(Extension);
             InforPanel.Controls.Add(Exceptiontitle);
             InforPanel.Controls.Add(Secrettitle);
             InforPanel.Location = new Point(166, 76);
@@ -290,25 +287,25 @@
             InforPanel.Size = new Size(639, 373);
             InforPanel.TabIndex = 3;
             // 
-            // Exceptionfile
+            // Exception
             // 
-            Exceptionfile.AutoSize = true;
-            Exceptionfile.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            Exceptionfile.Location = new Point(58, 255);
-            Exceptionfile.Name = "Exceptionfile";
-            Exceptionfile.Size = new Size(65, 19);
-            Exceptionfile.TabIndex = 3;
-            Exceptionfile.Text = "파일나열";
+            Exception.AutoSize = true;
+            Exception.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            Exception.Location = new Point(58, 255);
+            Exception.Name = "Exception";
+            Exception.Size = new Size(65, 19);
+            Exception.TabIndex = 3;
+            Exception.Text = "파일나열";
             // 
-            // Secretfile
+            // Extension
             // 
-            Secretfile.AutoSize = true;
-            Secretfile.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            Secretfile.Location = new Point(58, 115);
-            Secretfile.Name = "Secretfile";
-            Secretfile.Size = new Size(65, 19);
-            Secretfile.TabIndex = 2;
-            Secretfile.Text = "파일나열";
+            Extension.AutoSize = true;
+            Extension.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            Extension.Location = new Point(58, 115);
+            Extension.Name = "Extension";
+            Extension.Size = new Size(65, 19);
+            Extension.TabIndex = 2;
+            Extension.Text = "파일나열";
             // 
             // Exceptiontitle
             // 
@@ -330,62 +327,6 @@
             Secrettitle.TabIndex = 0;
             Secrettitle.Text = "암호화 대상 확장자";
             // 
-            // StartPanel
-            // 
-            StartPanel.Controls.Add(StartTakecheck);
-            StartPanel.Controls.Add(StartInfor);
-            StartPanel.Controls.Add(StartTakeout);
-            StartPanel.Location = new Point(0, 76);
-            StartPanel.Name = "StartPanel";
-            StartPanel.Padding = new Padding(20);
-            StartPanel.Size = new Size(802, 373);
-            StartPanel.TabIndex = 4;
-            // 
-            // StartTakecheck
-            // 
-            StartTakecheck.BackColor = Color.White;
-            StartTakecheck.Font = new Font("Pretendard", 18F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            StartTakecheck.Image = (Image)resources.GetObject("StartTakecheck.Image");
-            StartTakecheck.ImageAlign = ContentAlignment.TopCenter;
-            StartTakecheck.Location = new Point(281, 84);
-            StartTakecheck.Name = "StartTakecheck";
-            StartTakecheck.Padding = new Padding(50);
-            StartTakecheck.Size = new Size(240, 205);
-            StartTakecheck.TabIndex = 2;
-            StartTakecheck.Text = "반출 확인";
-            StartTakecheck.TextAlign = ContentAlignment.BottomCenter;
-            StartTakecheck.UseVisualStyleBackColor = false;
-            // 
-            // StartInfor
-            // 
-            StartInfor.BackColor = Color.White;
-            StartInfor.Font = new Font("Pretendard", 18F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            StartInfor.Image = (Image)resources.GetObject("StartInfor.Image");
-            StartInfor.ImageAlign = ContentAlignment.TopCenter;
-            StartInfor.Location = new Point(539, 84);
-            StartInfor.Name = "StartInfor";
-            StartInfor.Padding = new Padding(50);
-            StartInfor.Size = new Size(240, 205);
-            StartInfor.TabIndex = 1;
-            StartInfor.Text = "정보 요청";
-            StartInfor.TextAlign = ContentAlignment.BottomCenter;
-            StartInfor.UseVisualStyleBackColor = false;
-            // 
-            // StartTakeout
-            // 
-            StartTakeout.BackColor = Color.White;
-            StartTakeout.Font = new Font("Pretendard", 18F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            StartTakeout.Image = (Image)resources.GetObject("StartTakeout.Image");
-            StartTakeout.ImageAlign = ContentAlignment.TopCenter;
-            StartTakeout.Location = new Point(23, 84);
-            StartTakeout.Name = "StartTakeout";
-            StartTakeout.Padding = new Padding(50);
-            StartTakeout.Size = new Size(240, 205);
-            StartTakeout.TabIndex = 0;
-            StartTakeout.Text = "반출 요청";
-            StartTakeout.TextAlign = ContentAlignment.BottomCenter;
-            StartTakeout.UseVisualStyleBackColor = false;
-            // 
             // TakecheckPanel
             // 
             TakecheckPanel.BackColor = Color.White;
@@ -399,14 +340,64 @@
             TakecheckPanel.Size = new Size(636, 373);
             TakecheckPanel.TabIndex = 7;
             // 
+            // button3
+            // 
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            button3.Location = new Point(564, 337);
+            button3.Name = "button3";
+            button3.Size = new Size(25, 25);
+            button3.TabIndex = 3;
+            button3.Text = "3";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            button2.Location = new Point(533, 337);
+            button2.Name = "button2";
+            button2.Size = new Size(25, 25);
+            button2.TabIndex = 2;
+            button2.Text = "2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            button1.Location = new Point(502, 337);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 25);
+            button1.TabIndex = 1;
+            button1.Text = "1";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Pretendard Medium", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(54, 54, 54);
+            dataGridViewCellStyle2.Font = new Font("Pretendard SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(54, 54, 54);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeight = 40;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { one, two });
             dataGridView1.Location = new Point(0, 16);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 40;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -420,57 +411,25 @@
             one.FillWeight = 400F;
             one.HeaderText = "외부 반출 대상";
             one.Name = "one";
+            one.ReadOnly = true;
             // 
             // two
             // 
             two.FillWeight = 200F;
             two.HeaderText = "처리";
             two.Name = "two";
+            two.ReadOnly = true;
             two.Width = 200;
-            // 
-            // button1
-            // 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            button1.Location = new Point(502, 337);
-            button1.Name = "button1";
-            button1.Size = new Size(25, 25);
-            button1.TabIndex = 1;
-            button1.Text = "1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            button2.Location = new Point(533, 337);
-            button2.Name = "button2";
-            button2.Size = new Size(25, 25);
-            button2.TabIndex = 2;
-            button2.Text = "2";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            button3.Location = new Point(564, 337);
-            button3.Name = "button3";
-            button3.Size = new Size(25, 25);
-            button3.TabIndex = 3;
-            button3.Text = "3";
-            button3.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(TakecheckPanel);
+            Controls.Add(InforPanel);
             Controls.Add(TakeoutPanel);
             Controls.Add(MenuPanel);
-            Controls.Add(StartPanel);
-            Controls.Add(InforPanel);
+            Controls.Add(TakecheckPanel);
             Controls.Add(Header);
             Name = "Main";
             Text = "Main";
@@ -478,14 +437,12 @@
             Header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             MenuPanel.ResumeLayout(false);
-            MenuPanel.PerformLayout();
             TakeoutPanel.ResumeLayout(false);
             TakeoutPanel.PerformLayout();
             Getpanel.ResumeLayout(false);
             Getpanel.PerformLayout();
             InforPanel.ResumeLayout(false);
             InforPanel.PerformLayout();
-            StartPanel.ResumeLayout(false);
             TakecheckPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -501,24 +458,19 @@
         private Panel InforPanel;
         private Button CheckBtn;
         private Label Username;
-        private Label Exceptionfile;
-        private Label Secretfile;
+        private Label Exception;
+        private Label Extension;
         private Label Exceptiontitle;
         private Label Secrettitle;
-        private Panel StartPanel;
-        private Button StartTakeout;
-        private Button StartInfor;
-        private Button StartTakecheck;
         private Button TakeoutBtn;
         private Button InforBtn;
         private Button TakecheckBtn;
         private Button GetBtn;
         private Panel Getpanel;
-        private TextBox Gettextbox;
+        private TextBox GetTextBox;
         private TextBox ReasonText;
         private Button RequestBtn;
         private Panel TakecheckPanel;
-        private Label label1;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn one;
         private DataGridViewTextBoxColumn two;
