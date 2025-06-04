@@ -19,8 +19,12 @@ namespace Agent_Program
     public partial class Main : Form
     {
         string currentPage = "takeOut";
+        private const string baseApiUrl = "http://192.168.0.82/Smsproject/Api/";
         private static readonly HttpClient client = new HttpClient();
         public bool IsLogout { get; private set; } = false;
+
+        Dictionary<string, Button> buttons;
+        Dictionary<string, Panel> panels;
 
         public Main()
         {
@@ -30,9 +34,7 @@ namespace Agent_Program
 
         private void Main_Load(object sender, EventArgs e)
         {
-            ifCurrentPage();
-
-            Username.Text = UserSession.Username;
+            Username.Text = $"{UserSession.Username}님";
 
             TakeoutBtn.Image = new Bitmap(Properties.Resources.takeoutIcon, 45, 45);
             TakecheckBtn.Image = new Bitmap(Properties.Resources.takeCheckIcon, 45, 45);
@@ -60,6 +62,23 @@ namespace Agent_Program
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
             dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
+
+            // 버튼/패널 딕셔너리
+            panels = new Dictionary<string, Panel>()
+            {
+                { "takeOut", TakeoutPanel },
+                { "takeCheck", TakecheckPanel },
+                { "infor", InforPanel }
+            };
+
+            buttons = new Dictionary<string, Button>()
+            {
+                { "takeOut", TakeoutBtn },
+                { "takeCheck", TakecheckBtn },
+                { "infor", InforBtn }
+            };
+
+            ifCurrentPage();
         }
 
         // 버튼 hover 효과
@@ -95,33 +114,32 @@ namespace Agent_Program
         // 현재 페이지 확인 및 text 되돌리기
         private void ifCurrentPage()
         {
-            if (currentPage == "takeOut")
-            {
-                TakeoutPanel.BringToFront();
-                SearchTextBox.Text = "요청ID";
-                TakeoutBtn.BackColor = ColorTranslator.FromHtml("#EDEDED");
-                TakecheckBtn.BackColor = Color.White;
-                InforBtn.BackColor = Color.White;
-            }
-            else if (currentPage == "takeCheck")
-            {
-                TakecheckPanel.BringToFront();
-                GetTextBox.Text = "파일을 드래그하거나 가져와주세요";
-                ReasonText.Text = "사유";
-                TakeoutBtn.BackColor = Color.White;
-                TakecheckBtn.BackColor = ColorTranslator.FromHtml("#EDEDED");
-                InforBtn.BackColor = Color.White;
-            }
-            else if (currentPage == "infor")
-            {
-                InforPanel.BringToFront();
-                SearchTextBox.Text = "요청ID";
-                GetTextBox.Text = "파일을 드래그하거나 가져와주세요";
-                ReasonText.Text = "사유";
-                TakeoutBtn.BackColor = Color.White;
-                TakecheckBtn.BackColor = Color.White;
-                InforBtn.BackColor = ColorTranslator.FromHtml("#EDEDED");
-            }
+            ResetButtonColors();
+            ResetTextboxes();
+
+            if (panels.ContainsKey(currentPage))
+                panels[currentPage].BringToFront();
+            else
+                MessageBox.Show($"패널 '{currentPage}'를 찾을 수 없습니다.");
+
+            buttons[currentPage].BackColor = ColorTranslator.FromHtml("#EDEDED");
+        }
+
+
+        // 버튼 색 초기화
+        private void ResetButtonColors()
+        {
+            TakeoutBtn.BackColor = Color.White;
+            TakecheckBtn.BackColor = Color.White;
+            InforBtn.BackColor = Color.White;
+        }
+
+        // 텍스트박스 초기화
+        private void ResetTextboxes()
+        {
+            SearchTextBox.Text = "요청ID";
+            GetTextBox.Text = "파일을 드래그하거나 가져와주세요";
+            ReasonText.Text = "사유";
         }
 
         // 옆 메뉴 눌렀을 때 - 요청
@@ -161,7 +179,7 @@ namespace Agent_Program
             string agentId = getAgentId();
             if (string.IsNullOrEmpty(agentId)) return;
 
-            string url = $"http://192.168.0.82/Smsproject/Api/getconfig.html?val=" + agentId;
+            string url = $"{baseApiUrl}getconfig.html?val=" + agentId;
 
             try
             {
@@ -206,7 +224,7 @@ namespace Agent_Program
             string agentId = getAgentId();
             if (string.IsNullOrEmpty(agentId)) return;
 
-            string url = $"http://192.168.0.82/Smsproject/Api/logout.html?val=" + agentId;
+            string url = $"{baseApiUrl}logout.html?val=" + agentId;
 
             try
             {
@@ -244,7 +262,7 @@ namespace Agent_Program
             string agentId = getAgentId();
             if (string.IsNullOrEmpty(agentId)) return;
 
-            string url = $"http://192.168.0.82/Smsproject/Api/check.html?val=" + agentId;
+            string url = $"{baseApiUrl}check.html?val=" + agentId;
 
             try
             {
@@ -337,7 +355,7 @@ namespace Agent_Program
 
             string reasonText = ReasonText.Text;
             string val = $"{agentId}|{filePath}|{reasonText}";
-            string url = $"http://192.168.0.82/Smsproject/Api/request.html?val=" + Uri.EscapeDataString(val);
+            string url = $"{baseApiUrl}request.html?val=" + Uri.EscapeDataString(val);
             Debug.WriteLine(url);
 
             try
@@ -354,6 +372,7 @@ namespace Agent_Program
                         string requestID = parts[1];
                         MessageBox.Show($"Agent 요청\n요청ID: {requestID}\n*반출 요청 확인을 위해서는 요청ID가 필요합니다.*\n*요청ID는 자동으로 복사됩니다.*");
                         Clipboard.SetText(requestID);
+                        ResetTextboxes();
                     }
                     else
                     {
@@ -379,7 +398,7 @@ namespace Agent_Program
             string requestID = SearchTextBox.Text.Trim();
 
             string val = $"{agentId}|{requestID}";
-            string url = $"http://192.168.0.82/Smsproject/Api/requestcheck.html?val=" + Uri.EscapeDataString(val);
+            string url = $"{baseApiUrl}requestcheck.html?val=" + Uri.EscapeDataString(val);
             Debug.WriteLine(url);
 
             try
