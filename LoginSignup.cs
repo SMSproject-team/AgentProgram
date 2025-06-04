@@ -72,7 +72,7 @@ namespace Agent_Program
                         UserSession.Username = userName;
                         MessageBox.Show($"Agent 등록 성공\nID: {agentId}\n주기: {interval}");
 
-                        string filePath = "D:\\박연희\\AgentProgram\\AgentID.id";
+                        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AgentID.id");
 
                         File.WriteAllText(filePath, agentId);
 
@@ -98,7 +98,7 @@ namespace Agent_Program
         // 로그인버튼 눌렀을시
         private async void LoginApi()
         {
-            string filePath = "D:\\박연희\\AgentProgram\\AgentID.id";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AgentID.id");
             string agentId = "";
 
             if (File.Exists(filePath))
@@ -202,14 +202,13 @@ namespace Agent_Program
                     if (result.StartsWith("OK|"))
                     {
                         string[] parts = result.Split('|');
-                        if (parts.Length > 1) {
-                            string departmentList = parts[1].Trim();
-                            string[] departments = departmentList.Split('|');
-
+                        if (parts.Length > 1)
+                        {
                             comboBox1.Items.Clear();
-                            foreach (var dept in departments)
+
+                            for (int i = 1; i < parts.Length; i++)
                             {
-                                comboBox1.Items.Add(dept.Trim());
+                                comboBox1.Items.Add(parts[i].Trim());
                             }
                         }
                     }
@@ -217,8 +216,8 @@ namespace Agent_Program
                     {
                         MessageBox.Show($"서버 응답 오류: {result}");
                     }
-
                 }
+
                 else
                 {
                     MessageBox.Show($"통신 실패: {(int)response.StatusCode} {response.ReasonPhrase}");

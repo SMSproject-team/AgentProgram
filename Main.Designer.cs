@@ -51,9 +51,9 @@
             Exceptiontitle = new Label();
             Secrettitle = new Label();
             TakecheckPanel = new Panel();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            panel1 = new Panel();
+            SearchTextBox = new TextBox();
+            SearchBtn = new Button();
             dataGridView1 = new DataGridView();
             one = new DataGridViewTextBoxColumn();
             two = new DataGridViewTextBoxColumn();
@@ -64,6 +64,7 @@
             Getpanel.SuspendLayout();
             InforPanel.SuspendLayout();
             TakecheckPanel.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -330,9 +331,8 @@
             // TakecheckPanel
             // 
             TakecheckPanel.BackColor = Color.White;
-            TakecheckPanel.Controls.Add(button3);
-            TakecheckPanel.Controls.Add(button2);
-            TakecheckPanel.Controls.Add(button1);
+            TakecheckPanel.Controls.Add(panel1);
+            TakecheckPanel.Controls.Add(SearchBtn);
             TakecheckPanel.Controls.Add(dataGridView1);
             TakecheckPanel.Location = new Point(166, 76);
             TakecheckPanel.Name = "TakecheckPanel";
@@ -340,38 +340,45 @@
             TakecheckPanel.Size = new Size(636, 373);
             TakecheckPanel.TabIndex = 7;
             // 
-            // button3
+            // panel1
             // 
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            button3.Location = new Point(564, 337);
-            button3.Name = "button3";
-            button3.Size = new Size(25, 25);
-            button3.TabIndex = 3;
-            button3.Text = "3";
-            button3.UseVisualStyleBackColor = true;
+            panel1.AllowDrop = true;
+            panel1.BackColor = Color.FromArgb(223, 223, 223);
+            panel1.Controls.Add(SearchTextBox);
+            panel1.Font = new Font("Pretendard", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            panel1.Location = new Point(122, 34);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(5, 8, 5, 5);
+            panel1.Size = new Size(322, 40);
+            panel1.TabIndex = 4;
             // 
-            // button2
+            // SearchTextBox
             // 
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            button2.Location = new Point(533, 337);
-            button2.Name = "button2";
-            button2.Size = new Size(25, 25);
-            button2.TabIndex = 2;
-            button2.Text = "2";
-            button2.UseVisualStyleBackColor = true;
+            SearchTextBox.BackColor = Color.FromArgb(223, 223, 223);
+            SearchTextBox.BorderStyle = BorderStyle.None;
+            SearchTextBox.Dock = DockStyle.Fill;
+            SearchTextBox.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            SearchTextBox.ForeColor = Color.DimGray;
+            SearchTextBox.Location = new Point(5, 8);
+            SearchTextBox.Name = "SearchTextBox";
+            SearchTextBox.Size = new Size(312, 23);
+            SearchTextBox.TabIndex = 0;
+            SearchTextBox.Text = "요청 ID";
             // 
-            // button1
+            // SearchBtn
             // 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Pretendard", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            button1.Location = new Point(502, 337);
-            button1.Name = "button1";
-            button1.Size = new Size(25, 25);
-            button1.TabIndex = 1;
-            button1.Text = "1";
-            button1.UseVisualStyleBackColor = true;
+            SearchBtn.BackColor = Color.FromArgb(54, 54, 54);
+            SearchBtn.FlatAppearance.BorderSize = 0;
+            SearchBtn.FlatStyle = FlatStyle.Flat;
+            SearchBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            SearchBtn.ForeColor = Color.White;
+            SearchBtn.Location = new Point(450, 39);
+            SearchBtn.Name = "SearchBtn";
+            SearchBtn.Size = new Size(49, 33);
+            SearchBtn.TabIndex = 1;
+            SearchBtn.Text = "검색";
+            SearchBtn.UseVisualStyleBackColor = false;
+            SearchBtn.Click += SearchBtn_Click;
             // 
             // dataGridView1
             // 
@@ -384,6 +391,7 @@
             dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(54, 54, 54);
             dataGridViewCellStyle2.Font = new Font("Pretendard SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
@@ -394,7 +402,7 @@
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeight = 40;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { one, two });
-            dataGridView1.Location = new Point(0, 16);
+            dataGridView1.Location = new Point(0, 101);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -402,7 +410,7 @@
             dataGridView1.RowHeadersWidth = 40;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.RowTemplate.Height = 35;
-            dataGridView1.Size = new Size(636, 315);
+            dataGridView1.Size = new Size(636, 171);
             dataGridView1.TabIndex = 0;
             // 
             // one
@@ -426,10 +434,10 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(InforPanel);
             Controls.Add(TakeoutPanel);
-            Controls.Add(MenuPanel);
             Controls.Add(TakecheckPanel);
+            Controls.Add(InforPanel);
+            Controls.Add(MenuPanel);
             Controls.Add(Header);
             Name = "Main";
             Text = "Main";
@@ -444,6 +452,8 @@
             InforPanel.ResumeLayout(false);
             InforPanel.PerformLayout();
             TakecheckPanel.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -474,8 +484,8 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn one;
         private DataGridViewTextBoxColumn two;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button SearchBtn;
+        private Panel panel1;
+        private TextBox SearchTextBox;
     }
 }
