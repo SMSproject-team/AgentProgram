@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\박연희\\AgentProgram\\Agent Program.csproj",
-      "projectName": "Agent Program",
-      "projectPath": "D:\\박연희\\AgentProgram\\Agent Program.csproj",
+      "projectUniqueName": "D:\\박연희\\AgentProgram\\Agent_Program.csproj",
+      "projectName": "Agent_Program",
+      "projectPath": "D:\\박연희\\AgentProgram\\Agent_Program.csproj",
       "packagesPath": "C:\\Users\\YJ\\.nuget\\packages\\",
       "outputPath": "D:\\박연희\\AgentProgram\\obj\\",
       "projectStyle": "PackageReference",

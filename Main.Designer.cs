@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -112,10 +113,10 @@
             // 
             // Logo
             // 
-            Logo.Image = Properties.Resources.logo;
-            Logo.Location = new Point(12, 12);
+            Logo.Image = (Image)resources.GetObject("Logo.Image");
+            Logo.Location = new Point(44, 0);
             Logo.Name = "Logo";
-            Logo.Size = new Size(148, 50);
+            Logo.Size = new Size(70, 70);
             Logo.SizeMode = PictureBoxSizeMode.StretchImage;
             Logo.TabIndex = 0;
             Logo.TabStop = false;
@@ -448,8 +449,14 @@
             Controls.Add(InforPanel);
             Controls.Add(MenuPanel);
             Controls.Add(Header);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Main";
+            SizeGripStyle = SizeGripStyle.Hide;
             Text = "Main";
+            FormClosing += Main_FormClosing;
             Load += Main_Load;
             Header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();

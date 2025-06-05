@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Agent_Program</id>
+    <version>1.0.0</version>
+    <authors>Agent_Program</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="4a98db3e12059d3f92d2877c8fd6df48f50cd6d5" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="D:\박연희\AgentProgram\bin\Release\net8.0-windows\Agent_Program.runtimeconfig.json" target="lib\net8.0-windows7.0\Agent_Program.runtimeconfig.json" />
+    <file src="D:\박연희\AgentProgram\bin\Release\net8.0-windows\Agent_Program.dll" target="lib\net8.0-windows7.0\Agent_Program.dll" />
+  </files>
+</package>

@@ -59,14 +59,13 @@ namespace Agent_Program
             // 
             // label1
             // 
-            label1.Dock = DockStyle.Top;
             label1.Font = new Font("Pretendard SemiBold", 18F, FontStyle.Bold, GraphicsUnit.Point, 129);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(10, 216);
+            label1.Location = new Point(0, 271);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.No;
-            label1.Size = new Size(310, 57);
+            label1.Size = new Size(330, 45);
             label1.TabIndex = 3;
             label1.Text = "Hello, I’m imon!";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -74,12 +73,11 @@ namespace Agent_Program
             // Logo
             // 
             Logo.BackColor = Color.Transparent;
-            Logo.Dock = DockStyle.Top;
             Logo.Image = (Image)resources.GetObject("Logo.Image");
-            Logo.Location = new Point(10, 160);
+            Logo.Location = new Point(0, 119);
             Logo.Name = "Logo";
-            Logo.Size = new Size(310, 56);
-            Logo.SizeMode = PictureBoxSizeMode.CenterImage;
+            Logo.Size = new Size(330, 150);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
             Logo.TabIndex = 0;
             Logo.TabStop = false;
             // 
@@ -113,8 +111,8 @@ namespace Agent_Program
             SignupBtn.BackColor = Color.Transparent;
             SignupBtn.FlatAppearance.BorderSize = 0;
             SignupBtn.FlatStyle = FlatStyle.Flat;
-            SignupBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            SignupBtn.ForeColor = Color.FromArgb(103, 173, 178);
+            SignupBtn.Font = new Font("Pretendard ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            SignupBtn.ForeColor = Color.FromArgb(103, 195, 242);
             SignupBtn.Location = new Point(53, 321);
             SignupBtn.Name = "SignupBtn";
             SignupBtn.Size = new Size(75, 25);
@@ -125,10 +123,10 @@ namespace Agent_Program
             // 
             // LoginSignupBtn
             // 
-            LoginSignupBtn.BackColor = Color.FromArgb(137, 220, 226);
+            LoginSignupBtn.BackColor = Color.FromArgb(103, 195, 242);
             LoginSignupBtn.FlatAppearance.BorderSize = 0;
             LoginSignupBtn.FlatStyle = FlatStyle.Flat;
-            LoginSignupBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            LoginSignupBtn.Font = new Font("Pretendard SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 129);
             LoginSignupBtn.ForeColor = Color.Black;
             LoginSignupBtn.Location = new Point(53, 271);
             LoginSignupBtn.Name = "LoginSignupBtn";
@@ -166,7 +164,12 @@ namespace Agent_Program
             ClientSize = new Size(800, 450);
             Controls.Add(Rightpanel);
             Controls.Add(Leftpanel);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "LoginSignup";
+            SizeGripStyle = SizeGripStyle.Hide;
             Text = "LoginSignup";
             Load += LoginSignup_Load;
             Leftpanel.ResumeLayout(false);

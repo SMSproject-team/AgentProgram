@@ -22,6 +22,8 @@ namespace Agent_Program
         private const string baseApiUrl = "http://192.168.0.82/Smsproject/Api/";
         private static readonly HttpClient client = new HttpClient();
         public bool IsLogout { get; private set; } = false;
+        private NotifyIcon trayIcon;
+        private ContextMenuStrip trayMenu;
 
         Dictionary<string, Button> buttons;
         Dictionary<string, Panel> panels;
@@ -29,6 +31,7 @@ namespace Agent_Program
         public Main()
         {
             InitializeComponent();
+            InitializeTray();
             this.DoubleBuffered = true; // 깜빡임 방지
         }
 
@@ -79,6 +82,57 @@ namespace Agent_Program
             };
 
             ifCurrentPage();
+        }
+
+        // 로그인 상태일 때 trayicon 생성
+        private void InitializeTray()
+        {
+            trayIcon = new NotifyIcon();
+            trayIcon.Icon = new Icon(Path.Combine(Application.StartupPath, "logo.ico"));  // 원하는 아이콘 지정
+            trayIcon.Text = "내 프로그램";
+            trayIcon.Visible = true;
+
+            // 트레이 아이콘 더블클릭 시 창 보여주기
+            trayIcon.DoubleClick += (s, e) =>
+            {
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+                this.BringToFront();
+            };
+
+            trayMenu = new ContextMenuStrip();
+            trayMenu.Items.Add("열기", null, (s, e) =>
+            {
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+                this.BringToFront();
+            });
+
+            trayMenu.Items.Add("종료", null, OnExitClicked); // 종료 메뉴 항목 추가
+
+            trayIcon.ContextMenuStrip = trayMenu;
+        }
+        
+        // trayicon에서의 종료
+        private void OnExitClicked(object sender, EventArgs e)
+        {
+            IsLogout = true; // 종료 의도 표시
+            trayIcon.Visible = false;
+            trayIcon.Dispose(); // 트레이 아이콘 리소스 해제
+            Application.Exit(); // 완전 종료
+        }
+
+        // 창에서 x표시를 눌렀을 때
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"CloseReason: {e.CloseReason}, IsLogout: {IsLogout}");
+
+            if (e.CloseReason == CloseReason.UserClosing && !IsLogout)
+            {
+                e.Cancel = true;
+                this.Hide();
+                System.Diagnostics.Debug.WriteLine("폼 숨김 처리");
+            }
         }
 
         // 버튼 hover 효과
@@ -159,7 +213,7 @@ namespace Agent_Program
         // agentID 불러오기
         private string getAgentId()
         {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AgentID.id");
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AgentID.id");
 
 
             if (File.Exists(filePath))
@@ -237,6 +291,8 @@ namespace Agent_Program
                     if (result == "OK")
                     {
                         IsLogout = true;
+                        trayIcon.Visible = false;  // 트레이 아이콘 제거
+                        trayIcon.Dispose();
                         this.Close();
                     }
                     else

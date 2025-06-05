@@ -72,7 +72,7 @@ namespace Agent_Program
                         UserSession.Username = userName;
                         MessageBox.Show($"Agent 등록 성공\nID: {agentId}\n주기: {interval}");
 
-                        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AgentID.id");
+                        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AgentID.id");
 
                         File.WriteAllText(filePath, agentId);
 
@@ -98,7 +98,7 @@ namespace Agent_Program
         // 로그인버튼 눌렀을시
         private async void LoginApi()
         {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AgentID.id");
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AgentID.id");
             string agentId = "";
 
             if (File.Exists(filePath))
