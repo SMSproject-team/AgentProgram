@@ -77,6 +77,7 @@
             Header.Controls.Add(LogoutBtn);
             Header.Controls.Add(Logo);
             Header.Location = new Point(0, 0);
+            Header.Margin = new Padding(3, 2, 3, 2);
             Header.Name = "Header";
             Header.Size = new Size(805, 70);
             Header.TabIndex = 0;
@@ -89,6 +90,7 @@
             CheckBtn.Font = new Font("Pretendard", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
             CheckBtn.ForeColor = Color.White;
             CheckBtn.Location = new Point(632, 21);
+            CheckBtn.Margin = new Padding(3, 2, 3, 2);
             CheckBtn.Name = "CheckBtn";
             CheckBtn.Size = new Size(75, 30);
             CheckBtn.TabIndex = 2;
@@ -104,6 +106,7 @@
             LogoutBtn.Font = new Font("Pretendard", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
             LogoutBtn.ForeColor = Color.White;
             LogoutBtn.Location = new Point(713, 21);
+            LogoutBtn.Margin = new Padding(3, 2, 3, 2);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.Size = new Size(75, 30);
             LogoutBtn.TabIndex = 1;
@@ -115,6 +118,7 @@
             // 
             Logo.Image = (Image)resources.GetObject("Logo.Image");
             Logo.Location = new Point(44, 0);
+            Logo.Margin = new Padding(3, 2, 3, 2);
             Logo.Name = "Logo";
             Logo.Size = new Size(70, 70);
             Logo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -129,9 +133,10 @@
             MenuPanel.Controls.Add(TakeoutBtn);
             MenuPanel.Controls.Add(Username);
             MenuPanel.Location = new Point(0, 76);
+            MenuPanel.Margin = new Padding(3, 2, 3, 2);
             MenuPanel.Name = "MenuPanel";
             MenuPanel.Padding = new Padding(10);
-            MenuPanel.Size = new Size(160, 373);
+            MenuPanel.Size = new Size(160, 372);
             MenuPanel.TabIndex = 1;
             // 
             // InforBtn
@@ -142,8 +147,9 @@
             InforBtn.Image = Properties.Resources.inforIcon;
             InforBtn.ImageAlign = ContentAlignment.TopCenter;
             InforBtn.Location = new Point(32, 255);
+            InforBtn.Margin = new Padding(3, 2, 3, 2);
             InforBtn.Name = "InforBtn";
-            InforBtn.Padding = new Padding(7);
+            InforBtn.Padding = new Padding(7, 8, 7, 8);
             InforBtn.Size = new Size(95, 95);
             InforBtn.TabIndex = 7;
             InforBtn.Text = "정보 요청";
@@ -159,8 +165,9 @@
             TakecheckBtn.Image = Properties.Resources.takeCheckIcon;
             TakecheckBtn.ImageAlign = ContentAlignment.TopCenter;
             TakecheckBtn.Location = new Point(32, 156);
+            TakecheckBtn.Margin = new Padding(3, 2, 3, 2);
             TakecheckBtn.Name = "TakecheckBtn";
-            TakecheckBtn.Padding = new Padding(7);
+            TakecheckBtn.Padding = new Padding(7, 8, 7, 8);
             TakecheckBtn.Size = new Size(95, 95);
             TakecheckBtn.TabIndex = 6;
             TakecheckBtn.Text = "반출 확인";
@@ -177,6 +184,7 @@
             TakeoutBtn.Image = Properties.Resources.takeoutIcon;
             TakeoutBtn.ImageAlign = ContentAlignment.TopCenter;
             TakeoutBtn.Location = new Point(32, 55);
+            TakeoutBtn.Margin = new Padding(3, 2, 3, 2);
             TakeoutBtn.Name = "TakeoutBtn";
             TakeoutBtn.Padding = new Padding(5);
             TakeoutBtn.Size = new Size(95, 95);
@@ -204,9 +212,10 @@
             TakeoutPanel.Controls.Add(GetBtn);
             TakeoutPanel.Controls.Add(Getpanel);
             TakeoutPanel.Location = new Point(166, 76);
+            TakeoutPanel.Margin = new Padding(3, 2, 3, 2);
             TakeoutPanel.Name = "TakeoutPanel";
             TakeoutPanel.Padding = new Padding(10);
-            TakeoutPanel.Size = new Size(639, 373);
+            TakeoutPanel.Size = new Size(639, 372);
             TakeoutPanel.TabIndex = 2;
             // 
             // RequestBtn
@@ -217,6 +226,7 @@
             RequestBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
             RequestBtn.ForeColor = Color.White;
             RequestBtn.Location = new Point(36, 320);
+            RequestBtn.Margin = new Padding(3, 2, 3, 2);
             RequestBtn.Name = "RequestBtn";
             RequestBtn.Size = new Size(79, 30);
             RequestBtn.TabIndex = 6;
@@ -230,6 +240,7 @@
             ReasonText.Cursor = Cursors.IBeam;
             ReasonText.Font = new Font("Pretendard", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
             ReasonText.Location = new Point(36, 126);
+            ReasonText.Margin = new Padding(3, 2, 3, 2);
             ReasonText.Multiline = true;
             ReasonText.Name = "ReasonText";
             ReasonText.Size = new Size(428, 173);
@@ -244,6 +255,7 @@
             GetBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
             GetBtn.ForeColor = Color.White;
             GetBtn.Location = new Point(470, 59);
+            GetBtn.Margin = new Padding(3, 2, 3, 2);
             GetBtn.Name = "GetBtn";
             GetBtn.Size = new Size(87, 32);
             GetBtn.TabIndex = 4;
@@ -257,6 +269,7 @@
             Getpanel.BackColor = Color.FromArgb(223, 223, 223);
             Getpanel.Controls.Add(GetTextBox);
             Getpanel.Location = new Point(36, 55);
+            Getpanel.Margin = new Padding(3, 2, 3, 2);
             Getpanel.Name = "Getpanel";
             Getpanel.Padding = new Padding(5, 8, 5, 5);
             Getpanel.Size = new Size(428, 40);
@@ -272,6 +285,7 @@
             GetTextBox.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
             GetTextBox.ForeColor = Color.DimGray;
             GetTextBox.Location = new Point(5, 8);
+            GetTextBox.Margin = new Padding(3, 2, 3, 2);
             GetTextBox.Name = "GetTextBox";
             GetTextBox.Size = new Size(418, 23);
             GetTextBox.TabIndex = 0;
@@ -285,9 +299,10 @@
             InforPanel.Controls.Add(Exceptiontitle);
             InforPanel.Controls.Add(Secrettitle);
             InforPanel.Location = new Point(166, 76);
+            InforPanel.Margin = new Padding(3, 2, 3, 2);
             InforPanel.Name = "InforPanel";
             InforPanel.Padding = new Padding(10);
-            InforPanel.Size = new Size(639, 373);
+            InforPanel.Size = new Size(639, 372);
             InforPanel.TabIndex = 3;
             // 
             // Exception
@@ -337,9 +352,10 @@
             TakecheckPanel.Controls.Add(SearchBtn);
             TakecheckPanel.Controls.Add(dataGridView1);
             TakecheckPanel.Location = new Point(166, 76);
+            TakecheckPanel.Margin = new Padding(3, 2, 3, 2);
             TakecheckPanel.Name = "TakecheckPanel";
             TakecheckPanel.Padding = new Padding(10);
-            TakecheckPanel.Size = new Size(636, 373);
+            TakecheckPanel.Size = new Size(636, 372);
             TakecheckPanel.TabIndex = 7;
             // 
             // panel1
@@ -349,6 +365,7 @@
             panel1.Controls.Add(SearchTextBox);
             panel1.Font = new Font("Pretendard", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
             panel1.Location = new Point(122, 34);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5, 8, 5, 5);
             panel1.Size = new Size(322, 40);
@@ -362,6 +379,7 @@
             SearchTextBox.Font = new Font("Pretendard", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
             SearchTextBox.ForeColor = Color.DimGray;
             SearchTextBox.Location = new Point(5, 8);
+            SearchTextBox.Margin = new Padding(3, 2, 3, 2);
             SearchTextBox.Name = "SearchTextBox";
             SearchTextBox.Size = new Size(312, 23);
             SearchTextBox.TabIndex = 0;
@@ -375,8 +393,9 @@
             SearchBtn.Font = new Font("Pretendard", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
             SearchBtn.ForeColor = Color.White;
             SearchBtn.Location = new Point(450, 39);
+            SearchBtn.Margin = new Padding(3, 2, 3, 2);
             SearchBtn.Name = "SearchBtn";
-            SearchBtn.Size = new Size(49, 33);
+            SearchBtn.Size = new Size(49, 32);
             SearchBtn.TabIndex = 1;
             SearchBtn.Text = "검색";
             SearchBtn.UseVisualStyleBackColor = false;
@@ -414,6 +433,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.Location = new Point(0, 101);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -451,6 +471,7 @@
             Controls.Add(Header);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Main";

@@ -1,3 +1,4 @@
+D:\박연희\AgentProgram\bin\Release\net8.0-windows\logo.ico
 D:\박연희\AgentProgram\bin\Release\net8.0-windows\Agent_Program.exe
 D:\박연희\AgentProgram\bin\Release\net8.0-windows\Agent_Program.deps.json
 D:\박연희\AgentProgram\bin\Release\net8.0-windows\Agent_Program.runtimeconfig.json
@@ -17,4 +18,3 @@ D:\박연희\AgentProgram\obj\Release\net8.0-windows\refint\Agent_Program.dll
 D:\박연희\AgentProgram\obj\Release\net8.0-windows\Agent_Program.pdb
 D:\박연희\AgentProgram\obj\Release\net8.0-windows\Agent_Program.genruntimeconfig.cache
 D:\박연희\AgentProgram\obj\Release\net8.0-windows\ref\Agent_Program.dll
-D:\박연희\AgentProgram\bin\Release\net8.0-windows\logo.ico

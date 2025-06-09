@@ -19,6 +19,7 @@ namespace Agent_Program
         string ipAddress = Dns.GetHostAddresses(Dns.GetHostName())
     .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork)?.ToString();
         bool isLogin = true; // 현재가 로그인창인지 구별 [로그인 : true , 회원가입 : false]
+        private const string baseApiUrl = "http://ounnms.dothome.co.kr/project/Api/";
 
         private static readonly HttpClient client = new HttpClient();
 
@@ -54,7 +55,7 @@ namespace Agent_Program
             string userName = Textbox2.Text;
             string departName = comboBox1.Text;
             string val = $"{hostName}|{ipAddress}|{userName}|{departName}";
-            string url = $"http://192.168.0.82/Smsproject/Api/register.html?val="+Uri.EscapeDataString(val);
+            string url = $"{baseApiUrl}register.html?val=" +Uri.EscapeDataString(val);
 
             try
             {
@@ -113,7 +114,7 @@ namespace Agent_Program
 
             string userName = Textbox2.Text;
             string val = $"{agentId}|{ipAddress}|{userName}";
-            string url = $"http://192.168.0.82/Smsproject/Api/login.html?val=" + Uri.EscapeDataString(val);
+            string url = $"{baseApiUrl}login.html?val=" + Uri.EscapeDataString(val);
 
             try
             {
@@ -189,7 +190,7 @@ namespace Agent_Program
         // 부서 드롭다운 메뉴 넣기
         private async void LoadDropdown()
         {
-            string url = $"http://192.168.0.82/Smsproject/Api/get_departments.html?";
+            string url = $"{baseApiUrl}get_departments.html?";
 
             try
             {
@@ -226,6 +227,14 @@ namespace Agent_Program
             catch (Exception ex)
             {
                 MessageBox.Show("오류 발생: " + ex.Message);
+            }
+
+        }
+        private void LoginSignup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult != DialogResult.OK)
+            {
+                Application.Exit(); // 로그인 성공이 아니면 완전 종료
             }
         }
     }

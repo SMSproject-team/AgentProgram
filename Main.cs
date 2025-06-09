@@ -19,7 +19,7 @@ namespace Agent_Program
     public partial class Main : Form
     {
         string currentPage = "takeOut";
-        private const string baseApiUrl = "http://192.168.0.82/Smsproject/Api/";
+        private const string baseApiUrl = "http://ounnms.dothome.co.kr/project/Api/";
         private static readonly HttpClient client = new HttpClient();
         public bool IsLogout { get; private set; } = false;
         private NotifyIcon trayIcon;
@@ -89,7 +89,7 @@ namespace Agent_Program
         {
             trayIcon = new NotifyIcon();
             trayIcon.Icon = new Icon(Path.Combine(Application.StartupPath, "logo.ico"));  // 원하는 아이콘 지정
-            trayIcon.Text = "내 프로그램";
+            trayIcon.Text = "Agent Program";
             trayIcon.Visible = true;
 
             // 트레이 아이콘 더블클릭 시 창 보여주기
@@ -112,28 +112,34 @@ namespace Agent_Program
 
             trayIcon.ContextMenuStrip = trayMenu;
         }
-        
+
         // trayicon에서의 종료
         private void OnExitClicked(object sender, EventArgs e)
         {
-            IsLogout = true; // 종료 의도 표시
-            trayIcon.Visible = false;
-            trayIcon.Dispose(); // 트레이 아이콘 리소스 해제
-            Application.Exit(); // 완전 종료
+            IsLogout = true;
+            this.Close(); // FormClosing으로 진입
         }
 
-        // 창에서 x표시를 눌렀을 때
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine($"CloseReason: {e.CloseReason}, IsLogout: {IsLogout}");
-
             if (e.CloseReason == CloseReason.UserClosing && !IsLogout)
             {
                 e.Cancel = true;
                 this.Hide();
-                System.Diagnostics.Debug.WriteLine("폼 숨김 처리");
+            }
+            else
+            {
+                if (trayIcon != null)
+                {
+                    IsLogout = true;
+                    trayIcon.Visible = false;
+                    trayIcon.Dispose();
+                    trayIcon = null;
+                    Application.Exit();
+                }
             }
         }
+
 
         // 버튼 hover 효과
         private void Button_MouseEnter(object sender, EventArgs e)

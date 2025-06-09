@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\\uBC15\uC5F0\uD76C\\AgentProgram\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FCE37521-4912-4094-A75E-7AD531424476}|Agent_Program.csproj|d:\\\uBC15\uC5F0\uD76C\\agentprogram\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCE37521-4912-4094-A75E-7AD531424476}|Agent_Program.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B30C49C-1C98-0B47-6930-1545B61B900C}|Agent_Program.csproj|d:\\\uBC15\uC5F0\uD76C\\agentprogram\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B30C49C-1C98-0B47-6930-1545B61B900C}|Agent_Program.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCE37521-4912-4094-A75E-7AD531424476}|Agent_Program.csproj|d:\\\uBC15\uC5F0\uD76C\\agentprogram\\loginsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCE37521-4912-4094-A75E-7AD531424476}|Agent_Program.csproj|solutionrelative:loginsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B30C49C-1C98-0B47-6930-1545B61B900C}|Agent_Program.csproj|d:\\\uBC15\uC5F0\uD76C\\agentprogram\\loginsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B30C49C-1C98-0B47-6930-1545B61B900C}|Agent_Program.csproj|solutionrelative:loginsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,9 +32,9 @@
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "D:\\\uBC15\uC5F0\uD76C\\AgentProgram\\Main.cs",
               "RelativeToolTip": "Main.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAQwFoAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAUwHkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T04:36:37.861Z",
+              "WhenOpened": "2025-06-09T04:13:41.36Z",
               "EditorCaption": ""
             },
             {
@@ -45,9 +45,9 @@
               "RelativeDocumentMoniker": "LoginSignup.cs",
               "ToolTip": "D:\\\uBC15\uC5F0\uD76C\\AgentProgram\\LoginSignup.cs",
               "RelativeToolTip": "LoginSignup.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAswFsAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAiwIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T06:02:36.195Z",
+              "WhenOpened": "2025-06-09T04:13:49.262Z",
               "EditorCaption": ""
             }
           ]

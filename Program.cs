@@ -10,23 +10,25 @@ namespace Agent_Program
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ApplicationConfiguration.Initialize();
 
             while (true)
             {
-                using (LoginSignup login = new LoginSignup())
+                using (var loginForm = new LoginSignup())
                 {
-                    if (login.ShowDialog() != DialogResult.OK)
-                        break; // 로그인 취소하면 종료
+                    var loginResult = loginForm.ShowDialog();
+
+                    if (loginResult != DialogResult.OK)
+                        break; // 로그인 실패 또는 X로 닫으면 앱 종료
                 }
 
-                var main = new Main();
-                Application.Run(main);
+                using (var mainForm = new Main())
+                {
+                    Application.Run(mainForm);
 
-                if (!main.IsLogout)
-                    break; // 메인 폼이 그냥 닫힌 경우엔 앱 종료
+                    if (!mainForm.IsLogout)
+                        break; // 로그아웃 의도 없이 그냥 창 닫으면 종료
+                }
             }
-
         }
 
     }
